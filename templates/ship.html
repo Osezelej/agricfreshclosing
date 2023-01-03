@@ -1,0 +1,57 @@
+{%extends 'base.html'%}
+
+{%block title%}Shipping{%endblock%}
+{%block done%}
+<a href="" id="done">Cart</a>
+<a href="" id="done">Information</a>
+{%endblock%}
+{%block active%}
+<a href="" id="active">Shipping</a>
+{%endblock%}
+
+{%block links%}
+    <a href="">Payment</a>
+{%endblock%}
+
+
+{%block content%}
+<div class="contact_info" style="gap:0 ;">
+    <div class="contact">
+        <P class="ship_to">Contact</P>
+        <div class="info">
+            <p class="email">{{email}}</p>
+            <p id="done">change</p>
+        </div>
+    </div>
+    <hr>
+    <div class="ship">
+        <p class="ship_to">Ship to</p>
+        <div class="info">
+            <p class="addre">{{address}}, {{city}} {{state}}, Nigeria.</p>
+            <p id="done">change</p>
+        </div>
+    </div>
+    
+</div>
+<h2 style="margin-bottom: 14px ;">Logistic Method</h2>
+<form method="post">
+
+
+<div class="contact_info" style="gap: 12px;padding: 25px 15px; margin-top: 0;">
+    {{form.hidden_tag()}}
+    {%for subradio in form.select_logistics %}
+            <div style="display: flex; gap: 20px;">
+                {{subradio}}
+
+                {{subradio.label(style='font-weight:570;')}}
+            </div>
+            <hr style=" margin: 0px;"/>
+    {%endfor%}
+    
+        </div>
+<div style="padding:20px;display: flex; justify-content: space-between; align-items: center;">
+    <a href="" id="done" style="text-decoration:none ;">Return to Information</a>
+    {{form.submit(style='padding:10px; color:white;background-color:rgb(23, 83, 161); border-color:rgb(23, 83, 161);border-radius:5px; font-weight:560;')}}
+</div>
+</form>
+{%endblock%}

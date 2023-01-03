@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+{%block title%}Information{%endblock%}
+{%block links%}
+    <a href="">Shipping</a>
+    <a href="">Payment</a>
+{%endblock%}
+
+{%block done%}
+<a href="" id="done">Cart</a>
+{%endblock%}
+
+{%block active%}
+<a href="" id="active">Information</a>
+{%endblock%}
+
+{%block content%}
+    <form class="info_page" method="post">
+        <div class="contact_info">
+            <div>
+                <h2>Contact Information</h2>
+                {{form.hidden_tag()}}
+                {{form.email(placeholder='Enter your Email or Phone number...',class= 'form_control', on_focus='()=>(this.style.borderColor = "blue")')}}
+                <br/>
+                {{form.check_email()}}
+                {{form.check_email.label}}
+            </div>
+            <div class="shipping_info">
+                <h2>Shipping Address</h2>
+                <div class="shipping_info_grid">
+                    {{form.state(placeholder='State/region', class= 'form_control')}}
+                    <div>
+                        {{form.first_name(placeholder='First name(optional)', class= 'form_control')}}
+                        {{form.last_name(placeholder='Last name', class= 'form_control')}}
+                    </div>
+                    {{form.address(placeholder='Address', class= 'form_control')}}
+                    {{form.apartment(placeholder='Apartment,Suite,e.t.c(optional)', class= 'form_control')}}
+                    <div>
+                        {{form.postal_code(placeholder='Postal code', class= 'form_control')}}
+                        {{form.city(placeholder='city', class= 'form_control')}}
+                    </div> 
+    
+                </div>
+                {{form.save_info()}}
+                {{form.save_info.label}}
+        </div>
+        
+           
+        </div>
+        <div style="padding:20px;display: flex; justify-content: space-between; align-items: center;">
+            <a href="" id="done" style="text-decoration:none ;">Return to cart</a>
+            {{form.submit(style='padding:10px; color:white;background-color:rgb(23, 83, 161); border-color:rgb(23, 83, 161);border-radius:5px; font-weight:560;')}}
+        </div>
+    </form>
+{%endblock%}

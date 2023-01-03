@@ -1,0 +1,71 @@
+{%extends 'base.html'%}
+
+{%block title%}Payment{%endblock%}
+
+{%block done%}
+<a href="" id="done">Cart</a>
+<a href="" id="done">Information</a>
+<a href="" id="done">Shipping</a>
+{%endblock%}
+{%block active%}
+<a href="" id="active">Payment</a>
+{%endblock%}
+
+{%block content%}
+<div class="contact_info" style="gap:0 ;">
+    <div class="contact">
+        <P class="ship_to">Contact</P>
+        <div class="info">
+            <p class="email">{{email}}</p>
+            <p id="done">change</p>
+        </div>
+    </div>
+    <hr style="margin: 0;">
+    <div class="ship">
+        <p class="ship_to">Ship to</p>
+        <div class="info">
+            <p class="addre">{{address}}, {{city}}, {{state}}, Nigeria.</p>
+            <p id="done">change</p>
+        </div>
+    </div>
+    <hr style="margin: 0;">
+    <div class="ship">
+        <p class="ship_to">Logistics</p>
+        <div class="info">
+            <p class="addre">{{logistic}}</p>
+            <p id="done">change</p>
+        </div>
+    </div>
+    
+</div>
+<h2 style="margin-bottom: 14px ;">Payment</h2>
+<p style="margin: 0px;">All payment are encrypted and secure</p>
+
+<div class="credit_details">
+    <div class="credit_card">
+        <p style="font-weight:800;">Credit card</p>
+        <div class="credit_imgs">
+            <img src="{{url_for('static', filename='/images/Mastercard_2019_logo.svg.png')}}" alt="Mastercard_2019_logo" class="card_img">
+            <img src="{{url_for('static', filename='/images/Visa.png')}}" alt="Visa" class="card_img">
+            <img src="{{url_for('static', filename='/images/apple_pay.png')}}" alt="apple_pay" class="card_img">
+        </div>
+    </div>
+    <div class="card-input contact_info" style="width: auto; margin-top:0; border-radius: 0 0 10px 10px; gap: 3px;padding: 8px;">
+        {{form.hidden_tag()}}
+
+        {{form.card_number(class='form_control', placeholder='Card Number' , style='width:97%')}}
+        {{form.name_of_card(class='form_control', style='width:97%', placeholder='Name of Card' )}}
+        <div style="display: flex; gap: 20px;width: 100%;">
+            {{form.expiring_date(class='form_control', style='width:97%', placeholder='Expiring date(MM/YY)' )}}
+            {{form.security_code(class='form_control', style='width:97%', placeholder='Security Code' )}}
+        </div>
+        
+    </div>
+
+</div>
+<div style="padding:20px;display: flex; justify-content: space-between; align-items: center;">
+    <a href="" id="done" style="text-decoration:none ;">Return to Shipping</a>
+    {{form.submit(style='padding:10px; color:white;background-color:rgb(23, 83, 161); border-color:rgb(23, 83, 161);border-radius:5px; font-weight:560;')}}
+</div>
+
+{%endblock%}
